@@ -1,3 +1,4 @@
+import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:questionnaire/config/colors.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: ContextHolder.key,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

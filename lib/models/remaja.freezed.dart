@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'biodata.dart';
+part of 'remaja.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Biodata _$BiodataFromJson(Map<String, dynamic> json) {
-  return _Biodata.fromJson(json);
+Remaja _$RemajaFromJson(Map<String, dynamic> json) {
+  return _Remaja.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Biodata {
+mixin _$Remaja {
   int? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get age => throw _privateConstructorUsedError;
@@ -27,21 +27,21 @@ mixin _$Biodata {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BiodataCopyWith<Biodata> get copyWith => throw _privateConstructorUsedError;
+  $RemajaCopyWith<Remaja> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BiodataCopyWith<$Res> {
-  factory $BiodataCopyWith(Biodata value, $Res Function(Biodata) then) =
-      _$BiodataCopyWithImpl<$Res, Biodata>;
+abstract class $RemajaCopyWith<$Res> {
+  factory $RemajaCopyWith(Remaja value, $Res Function(Remaja) then) =
+      _$RemajaCopyWithImpl<$Res, Remaja>;
   @useResult
   $Res call({int? id, String name, String age, int clases});
 }
 
 /// @nodoc
-class _$BiodataCopyWithImpl<$Res, $Val extends Biodata>
-    implements $BiodataCopyWith<$Res> {
-  _$BiodataCopyWithImpl(this._value, this._then);
+class _$RemajaCopyWithImpl<$Res, $Val extends Remaja>
+    implements $RemajaCopyWith<$Res> {
+  _$RemajaCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -78,20 +78,19 @@ class _$BiodataCopyWithImpl<$Res, $Val extends Biodata>
 }
 
 /// @nodoc
-abstract class _$$_BiodataCopyWith<$Res> implements $BiodataCopyWith<$Res> {
-  factory _$$_BiodataCopyWith(
-          _$_Biodata value, $Res Function(_$_Biodata) then) =
-      __$$_BiodataCopyWithImpl<$Res>;
+abstract class _$$_RemajaCopyWith<$Res> implements $RemajaCopyWith<$Res> {
+  factory _$$_RemajaCopyWith(_$_Remaja value, $Res Function(_$_Remaja) then) =
+      __$$_RemajaCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? id, String name, String age, int clases});
 }
 
 /// @nodoc
-class __$$_BiodataCopyWithImpl<$Res>
-    extends _$BiodataCopyWithImpl<$Res, _$_Biodata>
-    implements _$$_BiodataCopyWith<$Res> {
-  __$$_BiodataCopyWithImpl(_$_Biodata _value, $Res Function(_$_Biodata) _then)
+class __$$_RemajaCopyWithImpl<$Res>
+    extends _$RemajaCopyWithImpl<$Res, _$_Remaja>
+    implements _$$_RemajaCopyWith<$Res> {
+  __$$_RemajaCopyWithImpl(_$_Remaja _value, $Res Function(_$_Remaja) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +101,7 @@ class __$$_BiodataCopyWithImpl<$Res>
     Object? age = null,
     Object? clases = null,
   }) {
-    return _then(_$_Biodata(
+    return _then(_$_Remaja(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -125,12 +124,12 @@ class __$$_BiodataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Biodata implements _Biodata {
-  const _$_Biodata(
+class _$_Remaja implements _Remaja {
+  const _$_Remaja(
       {this.id, required this.name, required this.age, required this.clases});
 
-  factory _$_Biodata.fromJson(Map<String, dynamic> json) =>
-      _$$_BiodataFromJson(json);
+  factory _$_Remaja.fromJson(Map<String, dynamic> json) =>
+      _$$_RemajaFromJson(json);
 
   @override
   final int? id;
@@ -143,14 +142,14 @@ class _$_Biodata implements _Biodata {
 
   @override
   String toString() {
-    return 'Biodata(id: $id, name: $name, age: $age, clases: $clases)';
+    return 'Remaja(id: $id, name: $name, age: $age, clases: $clases)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Biodata &&
+            other is _$_Remaja &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.age, age) || other.age == age) &&
@@ -164,25 +163,25 @@ class _$_Biodata implements _Biodata {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BiodataCopyWith<_$_Biodata> get copyWith =>
-      __$$_BiodataCopyWithImpl<_$_Biodata>(this, _$identity);
+  _$$_RemajaCopyWith<_$_Remaja> get copyWith =>
+      __$$_RemajaCopyWithImpl<_$_Remaja>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BiodataToJson(
+    return _$$_RemajaToJson(
       this,
     );
   }
 }
 
-abstract class _Biodata implements Biodata {
-  const factory _Biodata(
+abstract class _Remaja implements Remaja {
+  const factory _Remaja(
       {final int? id,
       required final String name,
       required final String age,
-      required final int clases}) = _$_Biodata;
+      required final int clases}) = _$_Remaja;
 
-  factory _Biodata.fromJson(Map<String, dynamic> json) = _$_Biodata.fromJson;
+  factory _Remaja.fromJson(Map<String, dynamic> json) = _$_Remaja.fromJson;
 
   @override
   int? get id;
@@ -194,6 +193,6 @@ abstract class _Biodata implements Biodata {
   int get clases;
   @override
   @JsonKey(ignore: true)
-  _$$_BiodataCopyWith<_$_Biodata> get copyWith =>
+  _$$_RemajaCopyWith<_$_Remaja> get copyWith =>
       throw _privateConstructorUsedError;
 }
