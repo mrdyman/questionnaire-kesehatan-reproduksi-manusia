@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:questionnaire/components/custom_confirmation_dialog.dart';
 import 'package:questionnaire/components/detail_jawaban_modal.dart';
-import 'package:questionnaire/const/fonts.dart';
+import 'package:questionnaire/config/fonts.dart';
 
 import '../../components/data_card.dart';
 
@@ -270,9 +270,10 @@ class DashboardScreen extends StatelessWidget {
                       builder: (_) => const DetailJawabanModal()),
                   onDelete: () => showDialog(
                       context: context,
-                      builder: (_) => const CustomConfirmationDialog(
+                      builder: (_) => CustomConfirmationDialog(
                             dialogSubTitle: "Yakin ingin menghapus data?",
                             confirmTitle: "Ya, Hapus!",
+                            onTap: () => 1,
                           )),
                 );
               }),

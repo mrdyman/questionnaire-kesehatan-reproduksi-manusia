@@ -3,8 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:questionnaire/components/custom_elevated_button_icon.dart';
 import 'package:questionnaire/components/custom_text_field.dart';
-import 'package:questionnaire/const/fonts.dart';
-import 'package:questionnaire/presentation/dashboard/dashboard_screen.dart';
+import 'package:questionnaire/config/fonts.dart';
+
+import '../dashboard/dashboard_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

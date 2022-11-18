@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:questionnaire/const/colors.dart';
-import 'package:questionnaire/presentation/welcome/welcome_screen.dart';
+import 'package:questionnaire/config/colors.dart';
+
+import 'app/welcome/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());

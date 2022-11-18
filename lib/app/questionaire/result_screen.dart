@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:questionnaire/const/colors.dart';
-import 'package:questionnaire/const/fonts.dart';
+import 'package:questionnaire/config/colors.dart';
+import 'package:questionnaire/config/fonts.dart';
 
 import '../../components/custom_elevated_button_icon.dart';
 

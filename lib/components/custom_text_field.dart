@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../const/fonts.dart';
+import '../config/fonts.dart';
 
 class CustomTextField extends StatelessWidget {
   final Widget? prefixIcon;

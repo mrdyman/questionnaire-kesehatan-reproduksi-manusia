@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:questionnaire/presentation/questionaire/questionaire_screen.dart';
 
-import '../const/fonts.dart';
+import '../config/fonts.dart';
 import 'custom_elevated_button_icon.dart';
 
 class CustomConfirmationDialog extends StatelessWidget {
@@ -11,11 +10,13 @@ class CustomConfirmationDialog extends StatelessWidget {
   final int dialogType;
   final String dialogSubTitle;
   final String confirmTitle;
+  final Function() onTap;
   const CustomConfirmationDialog({
     this.dialogTitle,
     this.dialogType = 1,
     required this.dialogSubTitle,
     required this.confirmTitle,
+    required this.onTap,
     Key? key,
   }) : super(key: key);
 
@@ -78,11 +79,7 @@ class CustomConfirmationDialog extends StatelessWidget {
                   backgroundColor: Colors.blue,
                   onPressed: () {
                     Navigator.pop(context);
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const QuestionaireScreen()),
-                    );
+                    onTap();
                   },
                 ),
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../const/fonts.dart';
+import '../config/fonts.dart';
 
 class CustomElevatedButtonIcon extends StatelessWidget {
   final String label;

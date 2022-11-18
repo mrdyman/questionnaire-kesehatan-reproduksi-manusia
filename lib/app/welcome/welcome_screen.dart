@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:questionnaire/presentation/biodata/biodata_screen.dart';
 import 'package:questionnaire/components/custom_elevated_button_icon.dart';
-import 'package:questionnaire/const/fonts.dart';
-import 'package:questionnaire/presentation/login/login_screen.dart';
+import 'package:questionnaire/config/fonts.dart';
+
+import '../biodata/biodata_screen.dart';
+import '../biodata/bloc/biodata_bloc.dart';
+import '../login/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -58,7 +61,10 @@ class WelcomeScreen extends StatelessWidget {
               onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const BiodataScreen()),
+                        builder: (context) => BlocProvider(
+                              create: (context) => BiodataBloc(),
+                              child: const BiodataScreen(),
+                            )),
                   )),
         ),
         GestureDetector(
