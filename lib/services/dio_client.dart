@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -70,6 +72,21 @@ class DioClient {
           options: Options(
             headers: {"Accept": "application/json"},
           ));
+      remaja = Remaja.fromJson(response.data);
+    } on DioError catch (e) {
+      debugPrint(e.message);
+    }
+    return remaja;
+  }
+
+  Future<Remaja?> createRemaja({required Remaja remaja}) async {
+    Remaja? remaja;
+    try {
+      Response response = await _dio.post("/remaja",
+          options: Options(
+            headers: {"Accept": "application/json"},
+          ),
+          data: jsonEncode(remaja));
       remaja = Remaja.fromJson(response.data);
     } on DioError catch (e) {
       debugPrint(e.message);
