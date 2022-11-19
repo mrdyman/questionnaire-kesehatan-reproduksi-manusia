@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:questionnaire/app/result/result_screen.dart';
+import 'package:questionnaire/models/jawaban.dart';
 
 import '../../../models/soal.dart';
 import '../../../services/dio_client.dart';
@@ -19,6 +20,7 @@ class QuestionaireBloc extends Bloc<QuestionaireEvent, QuestionaireState> {
   int benarCount = 0;
   int salahCount = 0;
   int totalScore = 0;
+  late int mahasiswaId;
   List<Soal>? soal;
   QuestionaireBloc() : super(const _Initial()) {
     on<_GetSoal>((event, emit) async {
@@ -34,12 +36,16 @@ class QuestionaireBloc extends Bloc<QuestionaireEvent, QuestionaireState> {
       totalScore += event.isBenar ? 10 : 0;
       benarCount += event.isBenar ? 1 : 0;
       salahCount += !event.isBenar ? 1 : 0;
+      await createJawaban(jawaban: event.isBenar ? "Benar" : "Salah");
       if (soal != null && currentSoal < 9) {
         currentSoal += 1;
         await Future.delayed(const Duration(milliseconds: 850));
         emit(_Loaded(soal: soal!));
       } else {
-        add(_Completed(benarCount, salahCount, totalScore));
+        bool result = await createResult();
+        if (result) {
+          add(_Completed(benarCount, salahCount, totalScore));
+        }
       }
     });
 
@@ -64,5 +70,30 @@ class QuestionaireBloc extends Bloc<QuestionaireEvent, QuestionaireState> {
       handleError(error: e);
     }
     return soal;
+  }
+
+  Future<bool> createJawaban({required String jawaban}) async {
+    try {
+      bool response = await DioClient().createJawaban(
+          jawaban: Jawaban(
+              mahasiswa_id: mahasiswaId,
+              soal_id: currentSoal + 1,
+              jawaban: jawaban));
+      return response;
+    } on DioError catch (e) {
+      handleError(error: e);
+      return false;
+    }
+  }
+
+  Future<bool> createResult() async {
+    try {
+      bool response = await DioClient()
+          .createResult(mahasiswaId: mahasiswaId, skor: totalScore);
+      return response;
+    } on DioError catch (e) {
+      handleError(error: e);
+      return false;
+    }
   }
 }

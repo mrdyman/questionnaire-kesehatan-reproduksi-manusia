@@ -16,7 +16,7 @@ class Mahasiswa with _$Mahasiswa {
   const factory Mahasiswa({
     int? id,
     required String name,
-    required String age,
+    required int age,
     required String clases,
   }) = _Mahasiswa;
 

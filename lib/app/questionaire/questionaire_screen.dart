@@ -9,22 +9,26 @@ import 'package:questionnaire/components/soal_loading.dart';
 import 'package:questionnaire/config/fonts.dart';
 
 class QuestionaireScreen extends StatelessWidget {
-  const QuestionaireScreen({super.key});
+  final int mahasiswaId;
+  const QuestionaireScreen({required this.mahasiswaId, super.key});
 
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<QuestionaireBloc>(context);
     bloc.add(const QuestionaireEvent.getSoal());
+    bloc.mahasiswaId = mahasiswaId;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back),
-            color: Colors.black,
-          ),
-          backgroundColor: Colors.white),
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back),
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Column(
         children: [
           Padding(
@@ -87,20 +91,16 @@ class QuestionaireScreen extends StatelessWidget {
                         const QuestionaireEvent.nextSoal(true),
                       )),
               const SizedBox(width: 20),
-              BlocBuilder<QuestionaireBloc, QuestionaireState>(
-                builder: (context, state) {
-                  return CustomElevatedButtonIcon(
-                      backgroundColor: Colors.red,
-                      label: "Salah",
-                      icon: SvgPicture.asset(
-                        "assets/icons/wrong.svg",
-                        height: 20,
-                        color: Colors.white,
-                      ),
-                      onPressed: () =>
-                          bloc.add(const QuestionaireEvent.nextSoal(false)));
-                },
-              ),
+              CustomElevatedButtonIcon(
+                  backgroundColor: Colors.red,
+                  label: "Salah",
+                  icon: SvgPicture.asset(
+                    "assets/icons/wrong.svg",
+                    height: 20,
+                    color: Colors.white,
+                  ),
+                  onPressed: () =>
+                      bloc.add(const QuestionaireEvent.nextSoal(false)))
             ],
           )
         ],

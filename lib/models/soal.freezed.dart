@@ -21,7 +21,8 @@ Soal _$SoalFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Soal {
   int? get id => throw _privateConstructorUsedError;
-  String get soal => throw _privateConstructorUsedError;
+  String get soal =>
+      throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
   int get is_benar => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -121,6 +122,7 @@ class _$_Soal implements _Soal {
   final int? id;
   @override
   final String soal;
+// ignore: non_constant_identifier_names
   @override
   final int is_benar;
 
@@ -170,7 +172,7 @@ abstract class _Soal implements Soal {
   int? get id;
   @override
   String get soal;
-  @override
+  @override // ignore: non_constant_identifier_names
   int get is_benar;
   @override
   @JsonKey(ignore: true)

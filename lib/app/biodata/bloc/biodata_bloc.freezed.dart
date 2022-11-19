@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BiodataEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String age, String clases) submit,
+    required TResult Function(String name, int age, String clases) submit,
     required TResult Function() moveToQuestionaire,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String age, String clases)? submit,
+    TResult? Function(String name, int age, String clases)? submit,
     TResult? Function()? moveToQuestionaire,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String age, String clases)? submit,
+    TResult Function(String name, int age, String clases)? submit,
     TResult Function()? moveToQuestionaire,
     required TResult orElse(),
   }) =>
@@ -79,7 +79,7 @@ abstract class _$$_SubmitCopyWith<$Res> {
   factory _$$_SubmitCopyWith(_$_Submit value, $Res Function(_$_Submit) then) =
       __$$_SubmitCopyWithImpl<$Res>;
   @useResult
-  $Res call({String name, String age, String clases});
+  $Res call({String name, int age, String clases});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$_SubmitCopyWithImpl<$Res>
       null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       null == clases
           ? _value.clases
           : clases // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ class _$_Submit implements _Submit {
   @override
   final String name;
   @override
-  final String age;
+  final int age;
   @override
   final String clases;
 
@@ -152,7 +152,7 @@ class _$_Submit implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String age, String clases) submit,
+    required TResult Function(String name, int age, String clases) submit,
     required TResult Function() moveToQuestionaire,
   }) {
     return submit(name, age, clases);
@@ -161,7 +161,7 @@ class _$_Submit implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String age, String clases)? submit,
+    TResult? Function(String name, int age, String clases)? submit,
     TResult? Function()? moveToQuestionaire,
   }) {
     return submit?.call(name, age, clases);
@@ -170,7 +170,7 @@ class _$_Submit implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String age, String clases)? submit,
+    TResult Function(String name, int age, String clases)? submit,
     TResult Function()? moveToQuestionaire,
     required TResult orElse(),
   }) {
@@ -213,11 +213,11 @@ class _$_Submit implements _Submit {
 }
 
 abstract class _Submit implements BiodataEvent {
-  const factory _Submit(
-      final String name, final String age, final String clases) = _$_Submit;
+  const factory _Submit(final String name, final int age, final String clases) =
+      _$_Submit;
 
   String get name;
-  String get age;
+  int get age;
   String get clases;
   @JsonKey(ignore: true)
   _$$_SubmitCopyWith<_$_Submit> get copyWith =>
@@ -262,7 +262,7 @@ class _$_MoveToQuestionaire implements _MoveToQuestionaire {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String age, String clases) submit,
+    required TResult Function(String name, int age, String clases) submit,
     required TResult Function() moveToQuestionaire,
   }) {
     return moveToQuestionaire();
@@ -271,7 +271,7 @@ class _$_MoveToQuestionaire implements _MoveToQuestionaire {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String age, String clases)? submit,
+    TResult? Function(String name, int age, String clases)? submit,
     TResult? Function()? moveToQuestionaire,
   }) {
     return moveToQuestionaire?.call();
@@ -280,7 +280,7 @@ class _$_MoveToQuestionaire implements _MoveToQuestionaire {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String age, String clases)? submit,
+    TResult Function(String name, int age, String clases)? submit,
     TResult Function()? moveToQuestionaire,
     required TResult orElse(),
   }) {

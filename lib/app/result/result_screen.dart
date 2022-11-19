@@ -22,12 +22,14 @@ class ResultScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundScaffold,
       appBar: AppBar(
-          leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back),
-            color: Colors.black,
-          ),
-          backgroundColor: Colors.white),
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back),
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Container(
         margin: const EdgeInsets.all(18),
         decoration: BoxDecoration(

@@ -6,17 +6,17 @@ part of 'jawaban.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-// ignore: non_constant_identifier_names
 _$_Jawaban _$$_JawabanFromJson(Map<String, dynamic> json) => _$_Jawaban(
       id: json['id'] as int?,
-      remaja_id: json['remaja_id'] as int,
-      jawaban: json['jawaban'] as int,
+      mahasiswa_id: json['mahasiswa_id'] as int,
+      soal_id: json['soal_id'] as int,
+      jawaban: json['jawaban'] as String,
     );
 
-// ignore: non_constant_identifier_names
 Map<String, dynamic> _$$_JawabanToJson(_$_Jawaban instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'remaja_id': instance.remaja_id,
+      'mahasiswa_id': instance.mahasiswa_id,
+      'soal_id': instance.soal_id,
       'jawaban': instance.jawaban,
     };

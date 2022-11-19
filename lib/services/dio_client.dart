@@ -81,20 +81,17 @@ class DioClient {
     return remaja;
   }
 
-  Future<bool> createMahasiswa({required Mahasiswa mahasiswa}) async {
+  Future<Mahasiswa?> createMahasiswa({required Mahasiswa mahasiswa}) async {
     try {
       Response response = await _dio.post("/mahasiswa",
           options: Options(
             headers: {"Accept": "application/json"},
           ),
           data: jsonEncode(mahasiswa));
-      if (response.statusCode == 201) {
-        return true;
-      }
-      return false;
+      return Mahasiswa.fromJson(jsonDecode(getData(response.data)));
     } on DioError catch (e) {
       debugPrint(e.message);
-      return false;
+      return null;
     }
   }
 
@@ -105,6 +102,27 @@ class DioClient {
             headers: {"Accept": "application/json"},
           ),
           data: jsonEncode(jawaban));
+      if (response.statusCode == 201) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      debugPrint(e.message);
+      return false;
+    }
+  }
+
+  Future<bool> createResult(
+      {required int mahasiswaId, required int skor}) async {
+    try {
+      Response response = await _dio.post("/result",
+          options: Options(
+            headers: {"Accept": "application/json"},
+          ),
+          data: {
+            "mahasiswa_id": mahasiswaId,
+            "skor": skor,
+          });
       if (response.statusCode == 201) {
         return true;
       }

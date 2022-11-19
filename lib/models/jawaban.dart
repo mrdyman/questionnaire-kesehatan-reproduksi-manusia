@@ -14,8 +14,10 @@ class Jawaban with _$Jawaban {
   const factory Jawaban({
     int? id,
     // ignore: non_constant_identifier_names
-    required int remaja_id,
-    required int jawaban,
+    required int mahasiswa_id,
+    // ignore: non_constant_identifier_names
+    required int soal_id,
+    required String jawaban,
   }) = _Jawaban;
 
   factory Jawaban.fromJson(Map<String, dynamic> json) =>

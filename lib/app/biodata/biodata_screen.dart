@@ -26,7 +26,8 @@ class BiodataScreen extends StatelessWidget {
             icon: const Icon(Icons.arrow_back),
             color: Colors.black,
           ),
-          backgroundColor: Colors.white),
+          backgroundColor: Colors.transparent,
+          elevation: 0),
       body: BlocListener<BiodataBloc, BiodataState>(
         listener: (context, state) {
           state.whenOrNull(
@@ -171,7 +172,8 @@ class BiodataScreen extends StatelessWidget {
                                               onTap: () {
                                                 bloc.add(BiodataEvent.submit(
                                                     bloc.state.nameTEC.text,
-                                                    bloc.state.ageTEC.text,
+                                                    int.parse(
+                                                        bloc.state.ageTEC.text),
                                                     bloc.state.clasesTEC.text));
                                               },
                                             ),

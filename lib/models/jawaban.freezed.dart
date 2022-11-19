@@ -20,9 +20,12 @@ Jawaban _$JawabanFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Jawaban {
-  int? get id => throw _privateConstructorUsedError;
-  int get remaja_id => throw _privateConstructorUsedError;
-  int get jawaban => throw _privateConstructorUsedError;
+  int? get id =>
+      throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
+  int get mahasiswa_id =>
+      throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
+  int get soal_id => throw _privateConstructorUsedError;
+  String get jawaban => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +37,7 @@ abstract class $JawabanCopyWith<$Res> {
   factory $JawabanCopyWith(Jawaban value, $Res Function(Jawaban) then) =
       _$JawabanCopyWithImpl<$Res, Jawaban>;
   @useResult
-  $Res call({int? id, int remaja_id, int jawaban});
+  $Res call({int? id, int mahasiswa_id, int soal_id, String jawaban});
 }
 
 /// @nodoc
@@ -51,7 +54,8 @@ class _$JawabanCopyWithImpl<$Res, $Val extends Jawaban>
   @override
   $Res call({
     Object? id = freezed,
-    Object? remaja_id = null,
+    Object? mahasiswa_id = null,
+    Object? soal_id = null,
     Object? jawaban = null,
   }) {
     return _then(_value.copyWith(
@@ -59,14 +63,18 @@ class _$JawabanCopyWithImpl<$Res, $Val extends Jawaban>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      remaja_id: null == remaja_id
-          ? _value.remaja_id
-          : remaja_id // ignore: cast_nullable_to_non_nullable
+      mahasiswa_id: null == mahasiswa_id
+          ? _value.mahasiswa_id
+          : mahasiswa_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      soal_id: null == soal_id
+          ? _value.soal_id
+          : soal_id // ignore: cast_nullable_to_non_nullable
               as int,
       jawaban: null == jawaban
           ? _value.jawaban
           : jawaban // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ) as $Val);
   }
 }
@@ -78,7 +86,7 @@ abstract class _$$_JawabanCopyWith<$Res> implements $JawabanCopyWith<$Res> {
       __$$_JawabanCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, int remaja_id, int jawaban});
+  $Res call({int? id, int mahasiswa_id, int soal_id, String jawaban});
 }
 
 /// @nodoc
@@ -92,7 +100,8 @@ class __$$_JawabanCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? remaja_id = null,
+    Object? mahasiswa_id = null,
+    Object? soal_id = null,
     Object? jawaban = null,
   }) {
     return _then(_$_Jawaban(
@@ -100,14 +109,18 @@ class __$$_JawabanCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      remaja_id: null == remaja_id
-          ? _value.remaja_id
-          : remaja_id // ignore: cast_nullable_to_non_nullable
+      mahasiswa_id: null == mahasiswa_id
+          ? _value.mahasiswa_id
+          : mahasiswa_id // ignore: cast_nullable_to_non_nullable
+              as int,
+      soal_id: null == soal_id
+          ? _value.soal_id
+          : soal_id // ignore: cast_nullable_to_non_nullable
               as int,
       jawaban: null == jawaban
           ? _value.jawaban
           : jawaban // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -115,21 +128,29 @@ class __$$_JawabanCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Jawaban implements _Jawaban {
-  const _$_Jawaban({this.id, required this.remaja_id, required this.jawaban});
+  const _$_Jawaban(
+      {this.id,
+      required this.mahasiswa_id,
+      required this.soal_id,
+      required this.jawaban});
 
   factory _$_Jawaban.fromJson(Map<String, dynamic> json) =>
       _$$_JawabanFromJson(json);
 
   @override
   final int? id;
+// ignore: non_constant_identifier_names
   @override
-  final int remaja_id;
+  final int mahasiswa_id;
+// ignore: non_constant_identifier_names
   @override
-  final int jawaban;
+  final int soal_id;
+  @override
+  final String jawaban;
 
   @override
   String toString() {
-    return 'Jawaban(id: $id, remaja_id: $remaja_id, jawaban: $jawaban)';
+    return 'Jawaban(id: $id, mahasiswa_id: $mahasiswa_id, soal_id: $soal_id, jawaban: $jawaban)';
   }
 
   @override
@@ -138,14 +159,16 @@ class _$_Jawaban implements _Jawaban {
         (other.runtimeType == runtimeType &&
             other is _$_Jawaban &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.remaja_id, remaja_id) ||
-                other.remaja_id == remaja_id) &&
+            (identical(other.mahasiswa_id, mahasiswa_id) ||
+                other.mahasiswa_id == mahasiswa_id) &&
+            (identical(other.soal_id, soal_id) || other.soal_id == soal_id) &&
             (identical(other.jawaban, jawaban) || other.jawaban == jawaban));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, remaja_id, jawaban);
+  int get hashCode =>
+      Object.hash(runtimeType, id, mahasiswa_id, soal_id, jawaban);
 
   @JsonKey(ignore: true)
   @override
@@ -164,17 +187,20 @@ class _$_Jawaban implements _Jawaban {
 abstract class _Jawaban implements Jawaban {
   const factory _Jawaban(
       {final int? id,
-      required final int remaja_id,
-      required final int jawaban}) = _$_Jawaban;
+      required final int mahasiswa_id,
+      required final int soal_id,
+      required final String jawaban}) = _$_Jawaban;
 
   factory _Jawaban.fromJson(Map<String, dynamic> json) = _$_Jawaban.fromJson;
 
   @override
   int? get id;
+  @override // ignore: non_constant_identifier_names
+  int get mahasiswa_id;
+  @override // ignore: non_constant_identifier_names
+  int get soal_id;
   @override
-  int get remaja_id;
-  @override
-  int get jawaban;
+  String get jawaban;
   @override
   @JsonKey(ignore: true)
   _$$_JawabanCopyWith<_$_Jawaban> get copyWith =>

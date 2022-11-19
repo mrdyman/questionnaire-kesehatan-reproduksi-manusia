@@ -22,7 +22,7 @@ Mahasiswa _$MahasiswaFromJson(Map<String, dynamic> json) {
 mixin _$Mahasiswa {
   int? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get age => throw _privateConstructorUsedError;
+  int get age => throw _privateConstructorUsedError;
   String get clases => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $MahasiswaCopyWith<$Res> {
   factory $MahasiswaCopyWith(Mahasiswa value, $Res Function(Mahasiswa) then) =
       _$MahasiswaCopyWithImpl<$Res, Mahasiswa>;
   @useResult
-  $Res call({int? id, String name, String age, String clases});
+  $Res call({int? id, String name, int age, String clases});
 }
 
 /// @nodoc
@@ -69,7 +69,7 @@ class _$MahasiswaCopyWithImpl<$Res, $Val extends Mahasiswa>
       age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       clases: null == clases
           ? _value.clases
           : clases // ignore: cast_nullable_to_non_nullable
@@ -85,7 +85,7 @@ abstract class _$$_MahasiswaCopyWith<$Res> implements $MahasiswaCopyWith<$Res> {
       __$$_MahasiswaCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String name, String age, String clases});
+  $Res call({int? id, String name, int age, String clases});
 }
 
 /// @nodoc
@@ -116,7 +116,7 @@ class __$$_MahasiswaCopyWithImpl<$Res>
       age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       clases: null == clases
           ? _value.clases
           : clases // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ class _$_Mahasiswa implements _Mahasiswa {
   @override
   final String name;
   @override
-  final String age;
+  final int age;
   @override
   final String clases;
 
@@ -181,7 +181,7 @@ abstract class _Mahasiswa implements Mahasiswa {
   const factory _Mahasiswa(
       {final int? id,
       required final String name,
-      required final String age,
+      required final int age,
       required final String clases}) = _$_Mahasiswa;
 
   factory _Mahasiswa.fromJson(Map<String, dynamic> json) =
@@ -192,7 +192,7 @@ abstract class _Mahasiswa implements Mahasiswa {
   @override
   String get name;
   @override
-  String get age;
+  int get age;
   @override
   String get clases;
   @override

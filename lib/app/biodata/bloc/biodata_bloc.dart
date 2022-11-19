@@ -17,6 +17,7 @@ part 'biodata_bloc.freezed.dart';
 
 class BiodataBloc extends Bloc<BiodataEvent, BiodataState> {
   BuildContext context = ContextHolder.currentContext;
+  late int mahasiswaId;
   BiodataBloc() : super(_Initial()) {
     on<BiodataEvent>((event, emit) {
       //
@@ -24,10 +25,11 @@ class BiodataBloc extends Bloc<BiodataEvent, BiodataState> {
 
     on<_Submit>((event, emit) async {
       emit(_Loading(isLoading: true));
-      bool biodata = await createBiodata(
+      Mahasiswa? biodata = await createBiodata(
           name: event.name, age: event.age, clases: event.clases);
       emit(_Loading());
-      if (biodata) {
+      if (biodata != null) {
+        mahasiswaId = biodata.id!;
         add(const _MoveToQuestionaire());
       }
     });
@@ -38,7 +40,7 @@ class BiodataBloc extends Bloc<BiodataEvent, BiodataState> {
         MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => QuestionaireBloc(),
-                  child: const QuestionaireScreen(),
+                  child: QuestionaireScreen(mahasiswaId: mahasiswaId),
                 )),
       );
     });
@@ -51,13 +53,13 @@ class BiodataBloc extends Bloc<BiodataEvent, BiodataState> {
     return true;
   }
 
-  Future<bool> createBiodata({
+  Future<Mahasiswa?> createBiodata({
     required String name,
-    required String age,
+    required int age,
     required String clases,
   }) async {
     try {
-      bool response = await DioClient().createMahasiswa(
+      Mahasiswa? response = await DioClient().createMahasiswa(
           mahasiswa: Mahasiswa(
         name: name,
         age: age,
@@ -66,7 +68,7 @@ class BiodataBloc extends Bloc<BiodataEvent, BiodataState> {
       return response;
     } on DioError catch (e) {
       handleError(error: e);
-      return false;
+      return null;
     }
   }
 }
