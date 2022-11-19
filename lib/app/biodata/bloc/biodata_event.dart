@@ -4,4 +4,5 @@ part of 'biodata_bloc.dart';
 class BiodataEvent with _$BiodataEvent {
   const factory BiodataEvent.submit(String name, String age, String clases) =
       _Submit;
+  const factory BiodataEvent.moveToQuestionaire() = _MoveToQuestionaire;
 }

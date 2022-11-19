@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:questionnaire/models/remaja.dart';
+import 'package:questionnaire/models/jawaban.dart';
+import 'package:questionnaire/models/mahasiswa.dart';
 import 'package:questionnaire/models/soal.dart';
 
 import '../models/user.dart';
@@ -65,32 +67,51 @@ class DioClient {
     return soal;
   }
 
-  Future<Remaja?> getRemaja() async {
-    Remaja? remaja;
+  Future<Mahasiswa?> getMahasiswa() async {
+    Mahasiswa? remaja;
     try {
-      Response response = await _dio.get("/remaja",
+      Response response = await _dio.get("/mahasiswa",
           options: Options(
             headers: {"Accept": "application/json"},
           ));
-      remaja = Remaja.fromJson(response.data);
+      remaja = Mahasiswa.fromJson(response.data);
     } on DioError catch (e) {
       debugPrint(e.message);
     }
     return remaja;
   }
 
-  Future<Remaja?> createRemaja({required Remaja remaja}) async {
-    Remaja? remaja;
+  Future<bool> createMahasiswa({required Mahasiswa mahasiswa}) async {
     try {
-      Response response = await _dio.post("/remaja",
+      Response response = await _dio.post("/mahasiswa",
           options: Options(
             headers: {"Accept": "application/json"},
           ),
-          data: jsonEncode(remaja));
-      remaja = Remaja.fromJson(response.data);
+          data: jsonEncode(mahasiswa));
+      if (response.statusCode == 201) {
+        return true;
+      }
+      return false;
     } on DioError catch (e) {
       debugPrint(e.message);
+      return false;
     }
-    return remaja;
+  }
+
+  Future<bool> createJawaban({required Jawaban jawaban}) async {
+    try {
+      Response response = await _dio.post("/jawaban",
+          options: Options(
+            headers: {"Accept": "application/json"},
+          ),
+          data: jsonEncode(jawaban));
+      if (response.statusCode == 201) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      debugPrint(e.message);
+      return false;
+    }
   }
 }

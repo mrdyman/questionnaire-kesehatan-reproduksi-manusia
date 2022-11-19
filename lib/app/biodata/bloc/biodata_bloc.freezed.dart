@@ -16,44 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BiodataEvent {
-  String get name => throw _privateConstructorUsedError;
-  String get age => throw _privateConstructorUsedError;
-  String get clases => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String name, String age, String clases) submit,
+    required TResult Function() moveToQuestionaire,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name, String age, String clases)? submit,
+    TResult? Function()? moveToQuestionaire,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name, String age, String clases)? submit,
+    TResult Function()? moveToQuestionaire,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Submit value) submit,
+    required TResult Function(_MoveToQuestionaire value) moveToQuestionaire,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_MoveToQuestionaire value)? moveToQuestionaire,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submit value)? submit,
+    TResult Function(_MoveToQuestionaire value)? moveToQuestionaire,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $BiodataEventCopyWith<BiodataEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,8 +61,6 @@ abstract class $BiodataEventCopyWith<$Res> {
   factory $BiodataEventCopyWith(
           BiodataEvent value, $Res Function(BiodataEvent) then) =
       _$BiodataEventCopyWithImpl<$Res, BiodataEvent>;
-  @useResult
-  $Res call({String name, String age, String clases});
 }
 
 /// @nodoc
@@ -75,36 +72,12 @@ class _$BiodataEventCopyWithImpl<$Res, $Val extends BiodataEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? age = null,
-    Object? clases = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      age: null == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as String,
-      clases: null == clases
-          ? _value.clases
-          : clases // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_SubmitCopyWith<$Res> implements $BiodataEventCopyWith<$Res> {
+abstract class _$$_SubmitCopyWith<$Res> {
   factory _$$_SubmitCopyWith(_$_Submit value, $Res Function(_$_Submit) then) =
       __$$_SubmitCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String name, String age, String clases});
 }
@@ -180,6 +153,7 @@ class _$_Submit implements _Submit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String name, String age, String clases) submit,
+    required TResult Function() moveToQuestionaire,
   }) {
     return submit(name, age, clases);
   }
@@ -188,6 +162,7 @@ class _$_Submit implements _Submit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name, String age, String clases)? submit,
+    TResult? Function()? moveToQuestionaire,
   }) {
     return submit?.call(name, age, clases);
   }
@@ -196,6 +171,7 @@ class _$_Submit implements _Submit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name, String age, String clases)? submit,
+    TResult Function()? moveToQuestionaire,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -208,6 +184,7 @@ class _$_Submit implements _Submit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Submit value) submit,
+    required TResult Function(_MoveToQuestionaire value) moveToQuestionaire,
   }) {
     return submit(this);
   }
@@ -216,6 +193,7 @@ class _$_Submit implements _Submit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_MoveToQuestionaire value)? moveToQuestionaire,
   }) {
     return submit?.call(this);
   }
@@ -224,6 +202,7 @@ class _$_Submit implements _Submit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Submit value)? submit,
+    TResult Function(_MoveToQuestionaire value)? moveToQuestionaire,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -237,16 +216,114 @@ abstract class _Submit implements BiodataEvent {
   const factory _Submit(
       final String name, final String age, final String clases) = _$_Submit;
 
-  @override
   String get name;
-  @override
   String get age;
-  @override
   String get clases;
-  @override
   @JsonKey(ignore: true)
   _$$_SubmitCopyWith<_$_Submit> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_MoveToQuestionaireCopyWith<$Res> {
+  factory _$$_MoveToQuestionaireCopyWith(_$_MoveToQuestionaire value,
+          $Res Function(_$_MoveToQuestionaire) then) =
+      __$$_MoveToQuestionaireCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_MoveToQuestionaireCopyWithImpl<$Res>
+    extends _$BiodataEventCopyWithImpl<$Res, _$_MoveToQuestionaire>
+    implements _$$_MoveToQuestionaireCopyWith<$Res> {
+  __$$_MoveToQuestionaireCopyWithImpl(
+      _$_MoveToQuestionaire _value, $Res Function(_$_MoveToQuestionaire) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_MoveToQuestionaire implements _MoveToQuestionaire {
+  const _$_MoveToQuestionaire();
+
+  @override
+  String toString() {
+    return 'BiodataEvent.moveToQuestionaire()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_MoveToQuestionaire);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name, String age, String clases) submit,
+    required TResult Function() moveToQuestionaire,
+  }) {
+    return moveToQuestionaire();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name, String age, String clases)? submit,
+    TResult? Function()? moveToQuestionaire,
+  }) {
+    return moveToQuestionaire?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name, String age, String clases)? submit,
+    TResult Function()? moveToQuestionaire,
+    required TResult orElse(),
+  }) {
+    if (moveToQuestionaire != null) {
+      return moveToQuestionaire();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_MoveToQuestionaire value) moveToQuestionaire,
+  }) {
+    return moveToQuestionaire(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_MoveToQuestionaire value)? moveToQuestionaire,
+  }) {
+    return moveToQuestionaire?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Submit value)? submit,
+    TResult Function(_MoveToQuestionaire value)? moveToQuestionaire,
+    required TResult orElse(),
+  }) {
+    if (moveToQuestionaire != null) {
+      return moveToQuestionaire(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MoveToQuestionaire implements BiodataEvent {
+  const factory _MoveToQuestionaire() = _$_MoveToQuestionaire;
 }
 
 /// @nodoc
