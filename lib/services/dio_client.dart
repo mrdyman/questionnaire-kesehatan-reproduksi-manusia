@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:questionnaire/models/jawaban.dart';
 import 'package:questionnaire/models/mahasiswa.dart';
+import 'package:questionnaire/models/raw_data_response.dart';
 import 'package:questionnaire/models/soal.dart';
 
 import '../models/user.dart';
@@ -53,14 +53,14 @@ class DioClient {
     return user;
   }
 
-  Future<Soal?> getSoal() async {
-    Soal? soal;
+  Future<List<Soal>?> getSoal() async {
+    List<Soal>? soal;
     try {
       Response response = await _dio.get("/soal",
           options: Options(
             headers: {"Accept": "application/json"},
           ));
-      soal = Soal.fromJson(response.data);
+      soal = listSoalFromJson(getData(response.data));
     } on DioError catch (e) {
       debugPrint(e.message);
     }

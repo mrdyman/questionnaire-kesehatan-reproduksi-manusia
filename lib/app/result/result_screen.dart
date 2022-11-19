@@ -7,7 +7,15 @@ import 'package:questionnaire/config/fonts.dart';
 import '../../components/custom_elevated_button_icon.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  final int totalBenar;
+  final int totalSalah;
+  final int totalScore;
+  const ResultScreen({
+    required this.totalBenar,
+    required this.totalSalah,
+    required this.totalScore,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +49,23 @@ class ResultScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               LottieBuilder.asset(
-                "assets/anims/medic.json",
-                height: 200,
+                totalScore >= 75
+                    ? "assets/anims/happy.json"
+                    : "assets/anims/sad.json",
+                height: 150,
               ),
             ],
           ),
+          Text(
+            totalScore >= 75
+                ? 'Selamat!. kamu paham.'
+                : 'Yah, kamu belum paham.',
+            style: const TextStyle(
+                fontFamily: fontNunito,
+                fontWeight: FontWeight.bold,
+                fontSize: 22),
+          ),
+          const SizedBox(height: 10),
           const Text(
             "Total Skor",
             style: TextStyle(
@@ -53,9 +73,9 @@ class ResultScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 22),
           ),
-          const Text(
-            "85",
-            style: TextStyle(
+          Text(
+            totalScore.toString(),
+            style: const TextStyle(
                 fontFamily: fontNunito,
                 fontWeight: FontWeight.bold,
                 fontSize: 22),
@@ -74,9 +94,9 @@ class ResultScreen extends StatelessWidget {
                     "Jawaban Benar",
                     style: TextStyle(fontFamily: fontNunito, fontSize: 16),
                   ),
-                  const Text(
-                    "8",
-                    style: TextStyle(
+                  Text(
+                    totalBenar.toString(),
+                    style: const TextStyle(
                         fontFamily: fontNunito,
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
@@ -105,9 +125,9 @@ class ResultScreen extends StatelessWidget {
                     "Jawaban Salah",
                     style: TextStyle(fontFamily: fontNunito, fontSize: 16),
                   ),
-                  const Text(
-                    "2",
-                    style: TextStyle(
+                  Text(
+                    totalSalah.toString(),
+                    style: const TextStyle(
                         fontFamily: fontNunito,
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
@@ -126,7 +146,7 @@ class ResultScreen extends StatelessWidget {
                   height: 20,
                   color: Colors.white,
                 ),
-                onPressed: () => 1),
+                onPressed: () => Navigator.pop(context)),
           ),
         ]),
       ),

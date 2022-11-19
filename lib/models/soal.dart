@@ -14,7 +14,8 @@ class Soal with _$Soal {
   const factory Soal({
     int? id,
     required String soal,
-    required int isBenar,
+    // ignore: non_constant_identifier_names
+    required int is_benar,
   }) = _Soal;
 
   factory Soal.fromJson(Map<String, dynamic> json) => _$SoalFromJson(json);

@@ -1,9 +1,11 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:questionnaire/app/questionaire/result_screen.dart';
+import 'package:questionnaire/app/questionaire/bloc/questionaire_bloc.dart';
 import 'package:questionnaire/components/custom_elevated_button_icon.dart';
+import 'package:questionnaire/components/soal_loading.dart';
 import 'package:questionnaire/config/fonts.dart';
 
 class QuestionaireScreen extends StatelessWidget {
@@ -11,6 +13,8 @@ class QuestionaireScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<QuestionaireBloc>(context);
+    bloc.add(const QuestionaireEvent.getSoal());
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -35,29 +39,37 @@ class QuestionaireScreen extends StatelessWidget {
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              DottedBorder(
-                borderType: BorderType.RRect,
-                radius: const Radius.circular(20),
-                dashPattern: const [3, 3],
-                color: Colors.blue,
-                strokeWidth: 2,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: size.width * 0.8,
-                    child: const Text(
-                      "Kesehatan reproduksi remaja merupakan suatu kondisi sehat yang menyangkut sistem, fungsi dan proses reproduksi pada remaja termasuk sehat secara mental serta sosial kultural.",
-                      style: TextStyle(
-                          fontFamily: fontNunito, fontWeight: FontWeight.w700),
-                      textAlign: TextAlign.center,
+          BlocBuilder<QuestionaireBloc, QuestionaireState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                loaded: (soal) => Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    DottedBorder(
+                      borderType: BorderType.RRect,
+                      radius: const Radius.circular(20),
+                      dashPattern: const [3, 3],
+                      color: Colors.blue,
+                      strokeWidth: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: size.width * 0.8,
+                          child: Text(
+                            soal[bloc.currentSoal].soal,
+                            style: const TextStyle(
+                                fontFamily: fontNunito,
+                                fontWeight: FontWeight.w700),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ),
-            ],
+                orElse: () => soalLoading(size),
+              );
+            },
           ),
           const SizedBox(height: 20),
           Row(
@@ -71,21 +83,24 @@ class QuestionaireScreen extends StatelessWidget {
                     height: 20,
                     color: Colors.white,
                   ),
-                  onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ResultScreen()),
+                  onPressed: () => bloc.add(
+                        const QuestionaireEvent.nextSoal(true),
                       )),
               const SizedBox(width: 20),
-              CustomElevatedButtonIcon(
-                  backgroundColor: Colors.red,
-                  label: "Salah",
-                  icon: SvgPicture.asset(
-                    "assets/icons/wrong.svg",
-                    height: 20,
-                    color: Colors.white,
-                  ),
-                  onPressed: () => 1),
+              BlocBuilder<QuestionaireBloc, QuestionaireState>(
+                builder: (context, state) {
+                  return CustomElevatedButtonIcon(
+                      backgroundColor: Colors.red,
+                      label: "Salah",
+                      icon: SvgPicture.asset(
+                        "assets/icons/wrong.svg",
+                        height: 20,
+                        color: Colors.white,
+                      ),
+                      onPressed: () =>
+                          bloc.add(const QuestionaireEvent.nextSoal(false)));
+                },
+              ),
             ],
           )
         ],

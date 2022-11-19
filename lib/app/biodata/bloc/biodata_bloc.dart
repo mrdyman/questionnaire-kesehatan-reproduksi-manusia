@@ -1,16 +1,15 @@
-import 'package:bloc/bloc.dart';
 import 'package:context_holder/context_holder.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:questionnaire/app/questionaire/bloc/questionaire_bloc.dart';
 import 'package:questionnaire/app/questionaire/questionaire_screen.dart';
 import 'package:questionnaire/services/dio_client.dart';
 import 'package:questionnaire/services/handle_errors.dart';
 
 import '../../../models/mahasiswa.dart';
-import '../../dashboard/dashboard_screen.dart';
 
 part 'biodata_event.dart';
 part 'biodata_state.dart';
@@ -36,7 +35,11 @@ class BiodataBloc extends Bloc<BiodataEvent, BiodataState> {
     on<_MoveToQuestionaire>((event, emit) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const QuestionaireScreen()),
+        MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => QuestionaireBloc(),
+                  child: const QuestionaireScreen(),
+                )),
       );
     });
   }

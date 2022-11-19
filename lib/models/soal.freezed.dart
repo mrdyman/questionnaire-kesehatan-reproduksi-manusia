@@ -22,7 +22,7 @@ Soal _$SoalFromJson(Map<String, dynamic> json) {
 mixin _$Soal {
   int? get id => throw _privateConstructorUsedError;
   String get soal => throw _privateConstructorUsedError;
-  int get isBenar => throw _privateConstructorUsedError;
+  int get is_benar => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $SoalCopyWith<$Res> {
   factory $SoalCopyWith(Soal value, $Res Function(Soal) then) =
       _$SoalCopyWithImpl<$Res, Soal>;
   @useResult
-  $Res call({int? id, String soal, int isBenar});
+  $Res call({int? id, String soal, int is_benar});
 }
 
 /// @nodoc
@@ -52,7 +52,7 @@ class _$SoalCopyWithImpl<$Res, $Val extends Soal>
   $Res call({
     Object? id = freezed,
     Object? soal = null,
-    Object? isBenar = null,
+    Object? is_benar = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -63,9 +63,9 @@ class _$SoalCopyWithImpl<$Res, $Val extends Soal>
           ? _value.soal
           : soal // ignore: cast_nullable_to_non_nullable
               as String,
-      isBenar: null == isBenar
-          ? _value.isBenar
-          : isBenar // ignore: cast_nullable_to_non_nullable
+      is_benar: null == is_benar
+          ? _value.is_benar
+          : is_benar // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -77,7 +77,7 @@ abstract class _$$_SoalCopyWith<$Res> implements $SoalCopyWith<$Res> {
       __$$_SoalCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String soal, int isBenar});
+  $Res call({int? id, String soal, int is_benar});
 }
 
 /// @nodoc
@@ -91,7 +91,7 @@ class __$$_SoalCopyWithImpl<$Res> extends _$SoalCopyWithImpl<$Res, _$_Soal>
   $Res call({
     Object? id = freezed,
     Object? soal = null,
-    Object? isBenar = null,
+    Object? is_benar = null,
   }) {
     return _then(_$_Soal(
       id: freezed == id
@@ -102,9 +102,9 @@ class __$$_SoalCopyWithImpl<$Res> extends _$SoalCopyWithImpl<$Res, _$_Soal>
           ? _value.soal
           : soal // ignore: cast_nullable_to_non_nullable
               as String,
-      isBenar: null == isBenar
-          ? _value.isBenar
-          : isBenar // ignore: cast_nullable_to_non_nullable
+      is_benar: null == is_benar
+          ? _value.is_benar
+          : is_benar // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -113,7 +113,7 @@ class __$$_SoalCopyWithImpl<$Res> extends _$SoalCopyWithImpl<$Res, _$_Soal>
 /// @nodoc
 @JsonSerializable()
 class _$_Soal implements _Soal {
-  const _$_Soal({this.id, required this.soal, required this.isBenar});
+  const _$_Soal({this.id, required this.soal, required this.is_benar});
 
   factory _$_Soal.fromJson(Map<String, dynamic> json) => _$$_SoalFromJson(json);
 
@@ -122,11 +122,11 @@ class _$_Soal implements _Soal {
   @override
   final String soal;
   @override
-  final int isBenar;
+  final int is_benar;
 
   @override
   String toString() {
-    return 'Soal(id: $id, soal: $soal, isBenar: $isBenar)';
+    return 'Soal(id: $id, soal: $soal, is_benar: $is_benar)';
   }
 
   @override
@@ -136,12 +136,13 @@ class _$_Soal implements _Soal {
             other is _$_Soal &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.soal, soal) || other.soal == soal) &&
-            (identical(other.isBenar, isBenar) || other.isBenar == isBenar));
+            (identical(other.is_benar, is_benar) ||
+                other.is_benar == is_benar));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, soal, isBenar);
+  int get hashCode => Object.hash(runtimeType, id, soal, is_benar);
 
   @JsonKey(ignore: true)
   @override
@@ -161,7 +162,7 @@ abstract class _Soal implements Soal {
   const factory _Soal(
       {final int? id,
       required final String soal,
-      required final int isBenar}) = _$_Soal;
+      required final int is_benar}) = _$_Soal;
 
   factory _Soal.fromJson(Map<String, dynamic> json) = _$_Soal.fromJson;
 
@@ -170,7 +171,7 @@ abstract class _Soal implements Soal {
   @override
   String get soal;
   @override
-  int get isBenar;
+  int get is_benar;
   @override
   @JsonKey(ignore: true)
   _$$_SoalCopyWith<_$_Soal> get copyWith => throw _privateConstructorUsedError;

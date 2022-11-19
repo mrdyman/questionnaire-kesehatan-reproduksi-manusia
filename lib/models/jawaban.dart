@@ -13,6 +13,7 @@ String listJawabanToJson(Jawaban data) => json.encode(data.toJson());
 class Jawaban with _$Jawaban {
   const factory Jawaban({
     int? id,
+    // ignore: non_constant_identifier_names
     required int remaja_id,
     required int jawaban,
   }) = _Jawaban;

@@ -61,7 +61,7 @@ class WelcomeScreen extends StatelessWidget {
               onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => BlocProvider(
+                        builder: (context) => BlocProvider<BiodataBloc>(
                               create: (context) => BiodataBloc(),
                               child: const BiodataScreen(),
                             )),
