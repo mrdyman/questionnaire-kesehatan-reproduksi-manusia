@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:questionnaire/app/questionaire/bloc/questionaire_bloc.dart';
+import 'package:questionnaire/components/custom_confirmation_dialog.dart';
 import 'package:questionnaire/components/custom_elevated_button_icon.dart';
 import 'package:questionnaire/components/soal_loading.dart';
 import 'package:questionnaire/config/fonts.dart';
@@ -22,7 +23,18 @@ class QuestionaireScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => showDialog(
+              context: context,
+              builder: (_) => CustomConfirmationDialog(
+                  dialogType: 2,
+                  dialogTitle: "Apakah anda yakin?",
+                  dialogSubTitle:
+                      "Proses belum selesai, jika kembali sebelum selesai melakukan pengisian kuesioner maka data akan dihapus!",
+                  confirmTitle: "Ya, saya mengerti!",
+                  onTap: () {
+                    bloc.add(QuestionaireEvent.close(mahasiswaId));
+                    Navigator.pop(context);
+                  })),
           icon: const Icon(Icons.arrow_back),
           color: Colors.black,
         ),

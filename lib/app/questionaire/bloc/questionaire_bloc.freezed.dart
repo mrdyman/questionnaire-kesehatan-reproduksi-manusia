@@ -20,6 +20,7 @@ mixin _$QuestionaireEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getSoal,
     required TResult Function(bool isBenar) nextSoal,
+    required TResult Function(int mahasiswaId) close,
     required TResult Function(int benarCount, int salahCount, int totalScore)
         completed,
   }) =>
@@ -28,6 +29,7 @@ mixin _$QuestionaireEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getSoal,
     TResult? Function(bool isBenar)? nextSoal,
+    TResult? Function(int mahasiswaId)? close,
     TResult? Function(int benarCount, int salahCount, int totalScore)?
         completed,
   }) =>
@@ -36,6 +38,7 @@ mixin _$QuestionaireEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSoal,
     TResult Function(bool isBenar)? nextSoal,
+    TResult Function(int mahasiswaId)? close,
     TResult Function(int benarCount, int salahCount, int totalScore)? completed,
     required TResult orElse(),
   }) =>
@@ -44,6 +47,7 @@ mixin _$QuestionaireEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSoal value) getSoal,
     required TResult Function(_NextSoal value) nextSoal,
+    required TResult Function(_Close value) close,
     required TResult Function(_Completed value) completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +55,7 @@ mixin _$QuestionaireEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetSoal value)? getSoal,
     TResult? Function(_NextSoal value)? nextSoal,
+    TResult? Function(_Close value)? close,
     TResult? Function(_Completed value)? completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +63,7 @@ mixin _$QuestionaireEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSoal value)? getSoal,
     TResult Function(_NextSoal value)? nextSoal,
+    TResult Function(_Close value)? close,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) =>
@@ -121,6 +127,7 @@ class _$_GetSoal implements _GetSoal {
   TResult when<TResult extends Object?>({
     required TResult Function() getSoal,
     required TResult Function(bool isBenar) nextSoal,
+    required TResult Function(int mahasiswaId) close,
     required TResult Function(int benarCount, int salahCount, int totalScore)
         completed,
   }) {
@@ -132,6 +139,7 @@ class _$_GetSoal implements _GetSoal {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getSoal,
     TResult? Function(bool isBenar)? nextSoal,
+    TResult? Function(int mahasiswaId)? close,
     TResult? Function(int benarCount, int salahCount, int totalScore)?
         completed,
   }) {
@@ -143,6 +151,7 @@ class _$_GetSoal implements _GetSoal {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSoal,
     TResult Function(bool isBenar)? nextSoal,
+    TResult Function(int mahasiswaId)? close,
     TResult Function(int benarCount, int salahCount, int totalScore)? completed,
     required TResult orElse(),
   }) {
@@ -157,6 +166,7 @@ class _$_GetSoal implements _GetSoal {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSoal value) getSoal,
     required TResult Function(_NextSoal value) nextSoal,
+    required TResult Function(_Close value) close,
     required TResult Function(_Completed value) completed,
   }) {
     return getSoal(this);
@@ -167,6 +177,7 @@ class _$_GetSoal implements _GetSoal {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetSoal value)? getSoal,
     TResult? Function(_NextSoal value)? nextSoal,
+    TResult? Function(_Close value)? close,
     TResult? Function(_Completed value)? completed,
   }) {
     return getSoal?.call(this);
@@ -177,6 +188,7 @@ class _$_GetSoal implements _GetSoal {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSoal value)? getSoal,
     TResult Function(_NextSoal value)? nextSoal,
+    TResult Function(_Close value)? close,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -257,6 +269,7 @@ class _$_NextSoal implements _NextSoal {
   TResult when<TResult extends Object?>({
     required TResult Function() getSoal,
     required TResult Function(bool isBenar) nextSoal,
+    required TResult Function(int mahasiswaId) close,
     required TResult Function(int benarCount, int salahCount, int totalScore)
         completed,
   }) {
@@ -268,6 +281,7 @@ class _$_NextSoal implements _NextSoal {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getSoal,
     TResult? Function(bool isBenar)? nextSoal,
+    TResult? Function(int mahasiswaId)? close,
     TResult? Function(int benarCount, int salahCount, int totalScore)?
         completed,
   }) {
@@ -279,6 +293,7 @@ class _$_NextSoal implements _NextSoal {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSoal,
     TResult Function(bool isBenar)? nextSoal,
+    TResult Function(int mahasiswaId)? close,
     TResult Function(int benarCount, int salahCount, int totalScore)? completed,
     required TResult orElse(),
   }) {
@@ -293,6 +308,7 @@ class _$_NextSoal implements _NextSoal {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSoal value) getSoal,
     required TResult Function(_NextSoal value) nextSoal,
+    required TResult Function(_Close value) close,
     required TResult Function(_Completed value) completed,
   }) {
     return nextSoal(this);
@@ -303,6 +319,7 @@ class _$_NextSoal implements _NextSoal {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetSoal value)? getSoal,
     TResult? Function(_NextSoal value)? nextSoal,
+    TResult? Function(_Close value)? close,
     TResult? Function(_Completed value)? completed,
   }) {
     return nextSoal?.call(this);
@@ -313,6 +330,7 @@ class _$_NextSoal implements _NextSoal {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSoal value)? getSoal,
     TResult Function(_NextSoal value)? nextSoal,
+    TResult Function(_Close value)? close,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -329,6 +347,152 @@ abstract class _NextSoal implements QuestionaireEvent {
   bool get isBenar;
   @JsonKey(ignore: true)
   _$$_NextSoalCopyWith<_$_NextSoal> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CloseCopyWith<$Res> {
+  factory _$$_CloseCopyWith(_$_Close value, $Res Function(_$_Close) then) =
+      __$$_CloseCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int mahasiswaId});
+}
+
+/// @nodoc
+class __$$_CloseCopyWithImpl<$Res>
+    extends _$QuestionaireEventCopyWithImpl<$Res, _$_Close>
+    implements _$$_CloseCopyWith<$Res> {
+  __$$_CloseCopyWithImpl(_$_Close _value, $Res Function(_$_Close) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? mahasiswaId = null,
+  }) {
+    return _then(_$_Close(
+      null == mahasiswaId
+          ? _value.mahasiswaId
+          : mahasiswaId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Close implements _Close {
+  const _$_Close(this.mahasiswaId);
+
+  @override
+  final int mahasiswaId;
+
+  @override
+  String toString() {
+    return 'QuestionaireEvent.close(mahasiswaId: $mahasiswaId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Close &&
+            (identical(other.mahasiswaId, mahasiswaId) ||
+                other.mahasiswaId == mahasiswaId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, mahasiswaId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CloseCopyWith<_$_Close> get copyWith =>
+      __$$_CloseCopyWithImpl<_$_Close>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getSoal,
+    required TResult Function(bool isBenar) nextSoal,
+    required TResult Function(int mahasiswaId) close,
+    required TResult Function(int benarCount, int salahCount, int totalScore)
+        completed,
+  }) {
+    return close(mahasiswaId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getSoal,
+    TResult? Function(bool isBenar)? nextSoal,
+    TResult? Function(int mahasiswaId)? close,
+    TResult? Function(int benarCount, int salahCount, int totalScore)?
+        completed,
+  }) {
+    return close?.call(mahasiswaId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getSoal,
+    TResult Function(bool isBenar)? nextSoal,
+    TResult Function(int mahasiswaId)? close,
+    TResult Function(int benarCount, int salahCount, int totalScore)? completed,
+    required TResult orElse(),
+  }) {
+    if (close != null) {
+      return close(mahasiswaId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetSoal value) getSoal,
+    required TResult Function(_NextSoal value) nextSoal,
+    required TResult Function(_Close value) close,
+    required TResult Function(_Completed value) completed,
+  }) {
+    return close(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetSoal value)? getSoal,
+    TResult? Function(_NextSoal value)? nextSoal,
+    TResult? Function(_Close value)? close,
+    TResult? Function(_Completed value)? completed,
+  }) {
+    return close?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetSoal value)? getSoal,
+    TResult Function(_NextSoal value)? nextSoal,
+    TResult Function(_Close value)? close,
+    TResult Function(_Completed value)? completed,
+    required TResult orElse(),
+  }) {
+    if (close != null) {
+      return close(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Close implements QuestionaireEvent {
+  const factory _Close(final int mahasiswaId) = _$_Close;
+
+  int get mahasiswaId;
+  @JsonKey(ignore: true)
+  _$$_CloseCopyWith<_$_Close> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -418,6 +582,7 @@ class _$_Completed implements _Completed {
   TResult when<TResult extends Object?>({
     required TResult Function() getSoal,
     required TResult Function(bool isBenar) nextSoal,
+    required TResult Function(int mahasiswaId) close,
     required TResult Function(int benarCount, int salahCount, int totalScore)
         completed,
   }) {
@@ -429,6 +594,7 @@ class _$_Completed implements _Completed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getSoal,
     TResult? Function(bool isBenar)? nextSoal,
+    TResult? Function(int mahasiswaId)? close,
     TResult? Function(int benarCount, int salahCount, int totalScore)?
         completed,
   }) {
@@ -440,6 +606,7 @@ class _$_Completed implements _Completed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSoal,
     TResult Function(bool isBenar)? nextSoal,
+    TResult Function(int mahasiswaId)? close,
     TResult Function(int benarCount, int salahCount, int totalScore)? completed,
     required TResult orElse(),
   }) {
@@ -454,6 +621,7 @@ class _$_Completed implements _Completed {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetSoal value) getSoal,
     required TResult Function(_NextSoal value) nextSoal,
+    required TResult Function(_Close value) close,
     required TResult Function(_Completed value) completed,
   }) {
     return completed(this);
@@ -464,6 +632,7 @@ class _$_Completed implements _Completed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetSoal value)? getSoal,
     TResult? Function(_NextSoal value)? nextSoal,
+    TResult? Function(_Close value)? close,
     TResult? Function(_Completed value)? completed,
   }) {
     return completed?.call(this);
@@ -474,6 +643,7 @@ class _$_Completed implements _Completed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetSoal value)? getSoal,
     TResult Function(_NextSoal value)? nextSoal,
+    TResult Function(_Close value)? close,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {

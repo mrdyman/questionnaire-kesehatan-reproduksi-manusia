@@ -76,7 +76,8 @@ class CustomConfirmationDialog extends StatelessWidget {
                     height: 25,
                     color: Colors.white,
                   ),
-                  backgroundColor: Colors.blue,
+                  backgroundColor:
+                      dialogType == 1 ? Colors.blue : Colors.redAccent,
                   onPressed: () {
                     Navigator.pop(context);
                     onTap();

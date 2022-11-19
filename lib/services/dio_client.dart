@@ -132,4 +132,21 @@ class DioClient {
       return false;
     }
   }
+
+  Future<bool> deleteMahasiswa({required int mahasiswaId}) async {
+    try {
+      Response response = await _dio.delete("/mahasiswa",
+          options: Options(
+            headers: {"Accept": "application/json"},
+          ),
+          data: {"id": mahasiswaId});
+      if (response.statusCode == 201) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      debugPrint(e.message);
+      return false;
+    }
+  }
 }

@@ -60,6 +60,10 @@ class QuestionaireBloc extends Bloc<QuestionaireEvent, QuestionaireState> {
                 )),
       );
     });
+
+    on<_Close>((event, emit) async {
+      await deleteMahasiswa();
+    });
   }
 
   Future<List<Soal>?> getSoal() async {
@@ -94,6 +98,14 @@ class QuestionaireBloc extends Bloc<QuestionaireEvent, QuestionaireState> {
     } on DioError catch (e) {
       handleError(error: e);
       return false;
+    }
+  }
+
+  Future deleteMahasiswa() async {
+    try {
+      await DioClient().deleteMahasiswa(mahasiswaId: mahasiswaId);
+    } on DioError catch (e) {
+      handleError(error: e);
     }
   }
 }
