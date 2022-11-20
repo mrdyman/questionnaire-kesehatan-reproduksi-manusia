@@ -47,6 +47,7 @@ dependencies:
   flutter_dotenv: ^5.0.2
   awesome_snackbar_content: ^0.1.0
   context_holder: ^0.0.5
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:

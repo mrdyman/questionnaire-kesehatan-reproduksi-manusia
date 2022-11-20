@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:questionnaire/components/error_snackbar.dart';
 import 'package:questionnaire/models/jawaban.dart';
 import 'package:questionnaire/models/mahasiswa.dart';
 import 'package:questionnaire/models/raw_data_response.dart';
@@ -45,10 +46,13 @@ class DioClient {
       Response response = await _dio.post("/login",
           options: Options(
             headers: {"Accept": "application/json"},
-          ));
-      user = User.fromJson(response.data);
+          ),
+          data: {"username": username, "password": password});
+      user = User.fromJson(jsonDecode(getData(response.data)));
     } on DioError catch (e) {
-      debugPrint(e.message);
+      if (e.response?.statusCode == 401) {
+        errorSnackbar("Usernane / Password Salah!");
+      }
     }
     return user;
   }

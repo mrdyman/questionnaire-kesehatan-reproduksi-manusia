@@ -1,7 +1,9 @@
 import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:questionnaire/config/colors.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:questionnaire/app/dashboard/dashboard_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app/welcome/welcome_screen.dart';
 
@@ -21,9 +23,47 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(
-        backgroundColor: backgroundScaffold,
-        body: WelcomeScreen(),
+      home: const Router(),
+    );
+  }
+}
+
+class Router extends StatefulWidget {
+  const Router({super.key});
+
+  @override
+  State<Router> createState() => _RouterState();
+}
+
+class _RouterState extends State<Router> {
+  isLogin() async {
+    final prefs = await SharedPreferences.getInstance();
+    bool session = prefs.getString('token') == null ? false : true;
+    moveToScreen(session);
+  }
+
+  moveToScreen(isLoggedIn) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            isLoggedIn ? const DashboardScreen() : const WelcomeScreen(),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    isLogin();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: LoadingAnimationWidget.twistingDots(
+            leftDotColor: Colors.green, rightDotColor: Colors.purple, size: 45),
       ),
     );
   }
