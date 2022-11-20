@@ -26,6 +26,7 @@ mixin _$Jawaban {
       throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
   int get soal_id => throw _privateConstructorUsedError;
   String get jawaban => throw _privateConstructorUsedError;
+  Soal? get soal => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,10 @@ abstract class $JawabanCopyWith<$Res> {
   factory $JawabanCopyWith(Jawaban value, $Res Function(Jawaban) then) =
       _$JawabanCopyWithImpl<$Res, Jawaban>;
   @useResult
-  $Res call({int? id, int mahasiswa_id, int soal_id, String jawaban});
+  $Res call(
+      {int? id, int mahasiswa_id, int soal_id, String jawaban, Soal? soal});
+
+  $SoalCopyWith<$Res>? get soal;
 }
 
 /// @nodoc
@@ -57,6 +61,7 @@ class _$JawabanCopyWithImpl<$Res, $Val extends Jawaban>
     Object? mahasiswa_id = null,
     Object? soal_id = null,
     Object? jawaban = null,
+    Object? soal = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -75,7 +80,23 @@ class _$JawabanCopyWithImpl<$Res, $Val extends Jawaban>
           ? _value.jawaban
           : jawaban // ignore: cast_nullable_to_non_nullable
               as String,
+      soal: freezed == soal
+          ? _value.soal
+          : soal // ignore: cast_nullable_to_non_nullable
+              as Soal?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SoalCopyWith<$Res>? get soal {
+    if (_value.soal == null) {
+      return null;
+    }
+
+    return $SoalCopyWith<$Res>(_value.soal!, (value) {
+      return _then(_value.copyWith(soal: value) as $Val);
+    });
   }
 }
 
@@ -86,7 +107,11 @@ abstract class _$$_JawabanCopyWith<$Res> implements $JawabanCopyWith<$Res> {
       __$$_JawabanCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, int mahasiswa_id, int soal_id, String jawaban});
+  $Res call(
+      {int? id, int mahasiswa_id, int soal_id, String jawaban, Soal? soal});
+
+  @override
+  $SoalCopyWith<$Res>? get soal;
 }
 
 /// @nodoc
@@ -103,6 +128,7 @@ class __$$_JawabanCopyWithImpl<$Res>
     Object? mahasiswa_id = null,
     Object? soal_id = null,
     Object? jawaban = null,
+    Object? soal = freezed,
   }) {
     return _then(_$_Jawaban(
       id: freezed == id
@@ -121,6 +147,10 @@ class __$$_JawabanCopyWithImpl<$Res>
           ? _value.jawaban
           : jawaban // ignore: cast_nullable_to_non_nullable
               as String,
+      soal: freezed == soal
+          ? _value.soal
+          : soal // ignore: cast_nullable_to_non_nullable
+              as Soal?,
     ));
   }
 }
@@ -132,7 +162,8 @@ class _$_Jawaban implements _Jawaban {
       {this.id,
       required this.mahasiswa_id,
       required this.soal_id,
-      required this.jawaban});
+      required this.jawaban,
+      this.soal});
 
   factory _$_Jawaban.fromJson(Map<String, dynamic> json) =>
       _$$_JawabanFromJson(json);
@@ -147,10 +178,12 @@ class _$_Jawaban implements _Jawaban {
   final int soal_id;
   @override
   final String jawaban;
+  @override
+  final Soal? soal;
 
   @override
   String toString() {
-    return 'Jawaban(id: $id, mahasiswa_id: $mahasiswa_id, soal_id: $soal_id, jawaban: $jawaban)';
+    return 'Jawaban(id: $id, mahasiswa_id: $mahasiswa_id, soal_id: $soal_id, jawaban: $jawaban, soal: $soal)';
   }
 
   @override
@@ -162,13 +195,14 @@ class _$_Jawaban implements _Jawaban {
             (identical(other.mahasiswa_id, mahasiswa_id) ||
                 other.mahasiswa_id == mahasiswa_id) &&
             (identical(other.soal_id, soal_id) || other.soal_id == soal_id) &&
-            (identical(other.jawaban, jawaban) || other.jawaban == jawaban));
+            (identical(other.jawaban, jawaban) || other.jawaban == jawaban) &&
+            (identical(other.soal, soal) || other.soal == soal));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, mahasiswa_id, soal_id, jawaban);
+      Object.hash(runtimeType, id, mahasiswa_id, soal_id, jawaban, soal);
 
   @JsonKey(ignore: true)
   @override
@@ -189,7 +223,8 @@ abstract class _Jawaban implements Jawaban {
       {final int? id,
       required final int mahasiswa_id,
       required final int soal_id,
-      required final String jawaban}) = _$_Jawaban;
+      required final String jawaban,
+      final Soal? soal}) = _$_Jawaban;
 
   factory _Jawaban.fromJson(Map<String, dynamic> json) = _$_Jawaban.fromJson;
 
@@ -201,6 +236,8 @@ abstract class _Jawaban implements Jawaban {
   int get soal_id;
   @override
   String get jawaban;
+  @override
+  Soal? get soal;
   @override
   @JsonKey(ignore: true)
   _$$_JawabanCopyWith<_$_Jawaban> get copyWith =>

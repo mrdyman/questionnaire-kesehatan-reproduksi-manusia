@@ -8,7 +8,10 @@ import 'package:questionnaire/components/error_snackbar.dart';
 import 'package:questionnaire/models/jawaban.dart';
 import 'package:questionnaire/models/mahasiswa.dart';
 import 'package:questionnaire/models/raw_data_response.dart';
+import 'package:questionnaire/models/result.dart';
 import 'package:questionnaire/models/soal.dart';
+import 'package:questionnaire/services/handle_errors.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/user.dart';
 
@@ -116,6 +119,28 @@ class DioClient {
     }
   }
 
+  Future<List<Result>?> getResult() async {
+    List<Result>? result;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      String token = prefs.getString('token')!;
+      Response response = await _dio.get("/result",
+          options: Options(
+            headers: {
+              "Accept": "application/json",
+              "authorization": "Bearer $token",
+            },
+          ));
+      result = listResultFromJson(getData(response.data));
+    } on DioError catch (e) {
+      if (e.response?.statusCode != 404) {
+        handleError(error: e);
+      }
+      debugPrint(e.message);
+    }
+    return result;
+  }
+
   Future<bool> createResult(
       {required int mahasiswaId, required int skor}) async {
     try {
@@ -128,6 +153,28 @@ class DioClient {
             "skor": skor,
           });
       if (response.statusCode == 201) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      debugPrint(e.message);
+      return false;
+    }
+  }
+
+  Future<bool> deleteResult({required int id}) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      String token = prefs.getString('token')!;
+      Response response = await _dio.delete("/result",
+          options: Options(
+            headers: {
+              "Accept": "application/json",
+              "authorization": "Bearer $token",
+            },
+          ),
+          data: {"id": id});
+      if (response.statusCode == 200) {
         return true;
       }
       return false;

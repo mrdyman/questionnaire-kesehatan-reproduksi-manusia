@@ -6,40 +6,39 @@ import '../config/fonts.dart';
 import 'custom_icon_button.dart';
 
 class DataItemCard extends StatelessWidget {
-  final dynamic Function()? onTap;
-  final dynamic Function()? onDelete;
-  final dynamic Function()? onEdit;
-  const DataItemCard({this.onTap, this.onDelete, this.onEdit, super.key});
+  final String nama;
+  final String umur;
+  final String kelas;
+  final int skor;
+  final dynamic Function() onTap;
+  final dynamic Function() onDelete;
+  const DataItemCard({
+    required this.nama,
+    required this.umur,
+    required this.kelas,
+    required this.skor,
+    required this.onTap,
+    required this.onDelete,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: () => onTap(),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
         child: Slidable(
           key: key,
           endActionPane: ActionPane(
             motion: const BehindMotion(),
-            extentRatio: 0.40,
+            extentRatio: 0.25,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 17, right: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: CustomIconButton(
-                  onTap: onEdit ?? () {},
-                  color: Colors.amber.shade400,
-                  icon: SvgPicture.asset(
-                    "assets/icons/edit.svg",
-                    height: 25,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: CustomIconButton(
-                  onTap: onDelete ?? () {},
+                  onTap: onDelete,
                   color: Colors.red.shade400,
                   icon: SvgPicture.asset(
                     "assets/icons/delete.svg",
@@ -75,9 +74,9 @@ class DataItemCard extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: size.width * 0.5,
-                        child: const Text(
-                          "Andi Mardiman Saputra",
-                          style: TextStyle(
+                        child: Text(
+                          nama,
+                          style: const TextStyle(
                             fontFamily: fontNunito,
                             fontSize: 16,
                           ),
@@ -88,11 +87,11 @@ class DataItemCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.lightBlue,
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 5, right: 5),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 5, right: 5),
                           child: Text(
-                            "Kelas A",
-                            style: TextStyle(
+                            "Kelas $kelas",
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontFamily: fontNunito,
@@ -108,10 +107,10 @@ class DataItemCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Text(
-                        "22 Tahun",
-                        style: TextStyle(
+                        "$umur Tahun",
+                        style: const TextStyle(
                           fontFamily: fontNunito,
                           fontSize: 16,
                         ),
@@ -128,13 +127,14 @@ class DataItemCard extends StatelessWidget {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.redAccent,
+                          color:
+                              skor >= 75 ? Colors.green[400] : Colors.redAccent,
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.only(left: 5, right: 5),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 5, right: 5),
                           child: Text(
-                            "Tidak Paham",
-                            style: TextStyle(
+                            skor >= 75 ? "Paham" : "Tidak Paham",
+                            style: const TextStyle(
                               color: Colors.white,
                               // fontWeight: FontWeight.bold,
                               fontFamily: fontNunito,

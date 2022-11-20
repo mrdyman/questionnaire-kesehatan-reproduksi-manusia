@@ -3,6 +3,7 @@ import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:questionnaire/app/dashboard/bloc/dashboard_bloc.dart';
 import 'package:questionnaire/app/dashboard/dashboard_screen.dart';
 import 'package:questionnaire/services/dio_client.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,7 +24,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (user != null) {
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', user.token);
+        await prefs.setString('username', user.username);
         moveToDashboard();
+      } else {
+        emit(_Loading());
       }
     });
   }
@@ -39,7 +43,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const DashboardScreen(),
+        builder: (context) => BlocProvider<DashboardBloc>(
+          create: (context) => DashboardBloc(),
+          child: const DashboardScreen(),
+        ),
       ),
     );
   }

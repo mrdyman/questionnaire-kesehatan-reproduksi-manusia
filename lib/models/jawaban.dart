@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:questionnaire/models/soal.dart';
 
 part 'jawaban.freezed.dart';
 part 'jawaban.g.dart';
@@ -18,6 +19,7 @@ class Jawaban with _$Jawaban {
     // ignore: non_constant_identifier_names
     required int soal_id,
     required String jawaban,
+    Soal? soal,
   }) = _Jawaban;
 
   factory Jawaban.fromJson(Map<String, dynamic> json) =>

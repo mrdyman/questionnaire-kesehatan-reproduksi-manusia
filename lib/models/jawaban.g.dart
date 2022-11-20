@@ -11,6 +11,9 @@ _$_Jawaban _$$_JawabanFromJson(Map<String, dynamic> json) => _$_Jawaban(
       mahasiswa_id: json['mahasiswa_id'] as int,
       soal_id: json['soal_id'] as int,
       jawaban: json['jawaban'] as String,
+      soal: json['soal'] == null
+          ? null
+          : Soal.fromJson(json['soal'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_JawabanToJson(_$_Jawaban instance) =>
@@ -19,4 +22,5 @@ Map<String, dynamic> _$$_JawabanToJson(_$_Jawaban instance) =>
       'mahasiswa_id': instance.mahasiswa_id,
       'soal_id': instance.soal_id,
       'jawaban': instance.jawaban,
+      'soal': instance.soal,
     };

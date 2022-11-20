@@ -1,7 +1,9 @@
 import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:questionnaire/app/dashboard/bloc/dashboard_bloc.dart';
 import 'package:questionnaire/app/dashboard/dashboard_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -46,8 +48,12 @@ class _RouterState extends State<Router> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) =>
-            isLoggedIn ? const DashboardScreen() : const WelcomeScreen(),
+        builder: (context) => isLoggedIn
+            ? BlocProvider<DashboardBloc>(
+                create: (context) => DashboardBloc(),
+                child: const DashboardScreen(),
+              )
+            : const WelcomeScreen(),
       ),
     );
   }
