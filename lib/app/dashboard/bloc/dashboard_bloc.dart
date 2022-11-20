@@ -1,15 +1,11 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:questionnaire/app/welcome/welcome_screen.dart';
 import 'package:questionnaire/components/custom_info_dialog.dart';
-import 'package:questionnaire/components/error_snackbar.dart';
 import 'package:questionnaire/models/result.dart';
 import 'package:questionnaire/services/dio_client.dart';
-import 'package:questionnaire/services/handle_errors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'dashboard_event.dart';

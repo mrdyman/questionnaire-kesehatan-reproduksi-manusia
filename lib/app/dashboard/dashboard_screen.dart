@@ -6,7 +6,6 @@ import 'package:questionnaire/components/custom_confirmation_dialog.dart';
 import 'package:questionnaire/components/custom_skeleton_loading.dart';
 import 'package:questionnaire/components/data_not_found.dart';
 import 'package:questionnaire/components/detail_jawaban_modal.dart';
-import 'package:questionnaire/components/soal_loading.dart';
 import 'package:questionnaire/config/fonts.dart';
 
 import '../../components/custom_loading_dialog.dart';
