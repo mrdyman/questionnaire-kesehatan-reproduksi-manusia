@@ -60,7 +60,7 @@ class WelcomeScreen extends StatelessWidget {
                   height: 20,
                   color: Colors.white,
                 ),
-                onPressed: () => Navigator.push(
+                onPressed: () => Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => BlocProvider<BiodataBloc>(
@@ -70,7 +70,7 @@ class WelcomeScreen extends StatelessWidget {
                     )),
           ),
           GestureDetector(
-            onTap: () => Navigator.push(
+            onTap: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                     builder: (context) => BlocProvider<AuthBloc>(

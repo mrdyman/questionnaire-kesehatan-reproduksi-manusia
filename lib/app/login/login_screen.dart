@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:questionnaire/app/login/bloc/auth_bloc.dart';
+import 'package:questionnaire/app/welcome/welcome_screen.dart';
 import 'package:questionnaire/components/custom_elevated_button_icon.dart';
 import 'package:questionnaire/components/custom_loading_dialog.dart';
 import 'package:questionnaire/components/custom_text_field.dart';
@@ -69,6 +70,7 @@ class LoginScreen extends StatelessWidget {
                                 child: CustomTextField(
                                   title: "Username",
                                   hintText: "username",
+                                  textInputAction: TextInputAction.next,
                                   controller: bloc.state.usernameTEC,
                                   isRequired: true,
                                   suffixIcon: Padding(
@@ -124,7 +126,10 @@ class LoginScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 10),
                               GestureDetector(
-                                onTap: () => Navigator.pop(context),
+                                onTap: () => Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => WelcomeScreen())),
                                 child: const Text(
                                   "Kembali ke menu utama",
                                   style: TextStyle(

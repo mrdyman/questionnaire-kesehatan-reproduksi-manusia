@@ -39,14 +39,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   moveToDashboard() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => BlocProvider<DashboardBloc>(
-          create: (context) => DashboardBloc(),
-          child: const DashboardScreen(),
-        ),
-      ),
-    );
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+            builder: (_) => BlocProvider<DashboardBloc>(
+                  create: (context) => DashboardBloc(),
+                  child: DashboardScreen(),
+                )),
+        (route) => false);
+    // Navigator.pushReplacement(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => BlocProvider<DashboardBloc>(
+    //       create: (context) => DashboardBloc(),
+    //       child: const DashboardScreen(),
+    //     ),
+    //   ),
+    // );
   }
 }

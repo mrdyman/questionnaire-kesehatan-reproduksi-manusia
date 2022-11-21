@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:questionnaire/app/welcome/welcome_screen.dart';
 import 'package:questionnaire/components/custom_elevated_button_icon.dart';
 import 'package:questionnaire/components/custom_loading_dialog.dart';
 import 'package:questionnaire/components/custom_text_field.dart';
 import 'package:questionnaire/config/colors.dart';
 
 import '../../components/custom_confirmation_dialog.dart';
+import '../../config/fonts.dart';
 import 'bloc/biodata_bloc.dart';
 
 class BiodataScreen extends StatelessWidget {
@@ -21,11 +23,11 @@ class BiodataScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundScaffold,
       appBar: AppBar(
-          leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back),
-            color: Colors.black,
-          ),
+          // leading: IconButton(
+          //   onPressed: () => Navigator.pop(context),
+          //   icon: const Icon(Icons.arrow_back),
+          //   color: Colors.black,
+          // ),
           backgroundColor: Colors.transparent,
           elevation: 0),
       body: BlocListener<BiodataBloc, BiodataState>(
@@ -133,7 +135,7 @@ class BiodataScreen extends StatelessWidget {
                                     title: "Kelas",
                                     hintText: "Cth. A",
                                     keyboardType: TextInputType.name,
-                                    textInputAction: TextInputAction.next,
+                                    textInputAction: TextInputAction.done,
                                     isRequired: true,
                                     controller: bloc.state.clasesTEC,
                                     suffixIcon: Padding(
@@ -179,7 +181,21 @@ class BiodataScreen extends StatelessWidget {
                                             ),
                                           );
                                         }
-                                      })
+                                      }),
+                                  SizedBox(height: 10),
+                                  GestureDetector(
+                                    onTap: () => Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) => WelcomeScreen())),
+                                    child: Text(
+                                      'Halaman Utama',
+                                      style: TextStyle(
+                                          fontFamily: fontNunito,
+                                          color: Colors.blue,
+                                          decoration: TextDecoration.underline),
+                                    ),
+                                  ),
                                 ],
                               ),
                             );

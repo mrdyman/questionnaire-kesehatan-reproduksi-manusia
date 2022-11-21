@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:questionnaire/app/welcome/welcome_screen.dart';
 import 'package:questionnaire/config/colors.dart';
 import 'package:questionnaire/config/fonts.dart';
 
@@ -22,11 +23,11 @@ class ResultScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundScaffold,
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back),
-          color: Colors.black,
-        ),
+        // leading: IconButton(
+        //   onPressed: () => Navigator.pop(context),
+        //   icon: const Icon(Icons.arrow_back),
+        //   color: Colors.black,
+        // ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -148,7 +149,8 @@ class ResultScreen extends StatelessWidget {
                   height: 20,
                   color: Colors.white,
                 ),
-                onPressed: () => Navigator.pop(context)),
+                onPressed: () => Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (_) => WelcomeScreen()))),
           ),
         ]),
       ),

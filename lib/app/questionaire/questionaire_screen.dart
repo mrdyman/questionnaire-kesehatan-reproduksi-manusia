@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:questionnaire/app/questionaire/bloc/questionaire_bloc.dart';
+import 'package:questionnaire/app/welcome/welcome_screen.dart';
 import 'package:questionnaire/components/custom_confirmation_dialog.dart';
 import 'package:questionnaire/components/custom_elevated_button_icon.dart';
 import 'package:questionnaire/components/soal_loading.dart';
@@ -33,7 +34,8 @@ class QuestionaireScreen extends StatelessWidget {
                   confirmTitle: "Ya, saya mengerti!",
                   onTap: () {
                     bloc.add(QuestionaireEvent.close(mahasiswaId));
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (_) => WelcomeScreen()));
                   })),
           icon: const Icon(Icons.arrow_back),
           color: Colors.black,
