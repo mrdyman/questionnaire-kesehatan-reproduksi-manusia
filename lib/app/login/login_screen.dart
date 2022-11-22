@@ -94,6 +94,7 @@ class LoginScreen extends StatelessWidget {
                                   title: "Password",
                                   hintText: "password",
                                   controller: bloc.state.passwordTEC,
+                                  obsecureText: true,
                                   isRequired: true,
                                   suffixIcon: Padding(
                                     padding: const EdgeInsets.all(8.0),
