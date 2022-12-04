@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:questionnaire/app/login/bloc/auth_bloc.dart';
+import 'package:questionnaire/app/teori/bloc/teori_bloc.dart';
+import 'package:questionnaire/app/teori/teori_screen.dart';
 import 'package:questionnaire/components/custom_elevated_button_icon.dart';
 import 'package:questionnaire/config/fonts.dart';
 
@@ -52,7 +54,25 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 50, bottom: 18),
+            padding: const EdgeInsets.only(top: 50),
+            child: CustomElevatedButtonIcon(
+              label: "PELAJARI TEORI",
+              icon: SvgPicture.asset(
+                "assets/icons/book.svg",
+                height: 20,
+              ),
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BlocProvider<TeoriBloc>(
+                      create: (context) => TeoriBloc(),
+                      child: const TeoriScreen(),
+                    ),
+                  )),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10, bottom: 18),
             child: CustomElevatedButtonIcon(
                 label: "ISI QUESIONER",
                 icon: SvgPicture.asset(
